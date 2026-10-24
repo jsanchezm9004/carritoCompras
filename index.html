@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito de compras</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="carrito-app">
+      <header class="encabezado">
+        <div>
+          <p class="eyebrow">Inventario</p>
+          <h1>Carrito de compras</h1>
+        </div>
+        <span class="chip">Productos variados</span>
+      </header>
+
+      <section class="panel buscador-panel">
+        <h2>Buscar producto</h2>
+        <div class="busqueda">
+          <input id="buscarProducto" type="text" placeholder="Ej. auriculares, laptop..." />
+          <button type="button" class="btn btn-primary" data-action="buscar">Buscar</button>
+          <button type="button" class="btn btn-secondary" data-action="limpiar-filtro">Limpiar</button>
+        </div>
+      </section>
+
+      <section class="panel formulario-panel">
+        <h2>Agregar producto</h2>
+        <form id="formProducto" novalidate>
+          <input type="hidden" id="productoId" />
+
+          <div class="campo-grupo">
+            <div class="campo">
+              <label for="nombreProducto">Producto</label>
+              <input id="nombreProducto" name="nombre" type="text" placeholder="Ej. Café premium" />
+            </div>
+
+            <div class="campo">
+              <label for="precioProducto">Precio</label>
+              <input id="precioProducto" name="precio" type="number" min="0" step="0.01" placeholder="0.00" />
+            </div>
+
+            <div class="campo">
+              <label for="cantidadProducto">Cantidad</label>
+              <input id="cantidadProducto" name="cantidad" type="number" min="1" step="1" placeholder="1" />
+            </div>
+          </div>
+
+          <div class="acciones-form">
+            <button type="button" class="btn btn-primary" data-action="agregar" id="btnAgregar">
+              Agregar producto
+            </button>
+            <button type="button" class="btn btn-secondary" data-action="cancelar">
+              Cancelar
+            </button>
+          </div>
+        </form>
+
+        <p id="mensaje" class="mensaje" aria-live="polite"></p>
+      </section>
+
+      <section class="panel tabla-panel">
+        <table class="tabla-carrito">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="listaProductos"></tbody>
+        </table>
+
+        <div class="resumen">
+          <span>Total del carrito</span>
+          <strong id="totalCarrito">$0.00</strong>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
